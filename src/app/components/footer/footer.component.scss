@@ -1,0 +1,38 @@
+:host {
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  // height: 80px;
+  // overflow: hidden;
+
+  mat-toolbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: transparent;
+
+    .content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+
+      img {
+        height: 50px;
+        width: auto;
+        @media only screen and (max-width: 600px) {
+          height: 30px;
+        }
+        .footer-text {
+          margin-left: 10px;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        mat-toolbar {
+          height: 5vh;
+        }
+      }
+    }
+  }
+}

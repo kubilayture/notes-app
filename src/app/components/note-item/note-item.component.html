@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ note.content }}</mat-card-title>
+    <mat-card-subtitle>{{ note.priority }} Derece</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-icon-button color="primary" (click)="editNote()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="deleteNote()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

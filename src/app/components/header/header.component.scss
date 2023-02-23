@@ -1,0 +1,29 @@
+:host {
+  width: 100%;
+  margin: 0 auto;
+
+  mat-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-shrink: 0;
+    height: 70px;
+
+    a {
+      height: 70px;
+      width: auto;
+
+      img {
+        height: 60px;
+        width: auto;
+        padding-top: 10px;
+      }
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    mat-toolbar {
+      justify-content: space-between;
+    }
+  }
+}

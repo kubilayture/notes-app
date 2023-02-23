@@ -1,0 +1,38 @@
+<mat-card class="note-edit">
+  <mat-card-header>
+    <mat-card-title>Notu Düzenle</mat-card-title>
+  </mat-card-header>
+  <!-- form -->
+  <div class="form-container">
+    <form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+      <mat-card-content>
+        <mat-form-field>
+          <mat-label>Not</mat-label>
+          <textarea matInput formControlName="content"></textarea>
+          <mat-error *ngIf="noteForm.controls['content'].invalid">
+            Not boş bırakılamaz
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Not Önceliği</mat-label>
+          <mat-select formControlName="priority">
+            <mat-option
+              *ngFor="let priority of ['Düşük', 'Orta', 'Yüksek']"
+              [value]="priority"
+            >
+              {{ priority }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="noteForm.controls['priority'].invalid">
+            Not Önceliği Girmeniz Gerekiyor
+          </mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">
+          Güncelle
+        </button>
+      </mat-card-actions>
+    </form>
+  </div>
+</mat-card>

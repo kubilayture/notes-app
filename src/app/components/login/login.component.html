@@ -1,0 +1,34 @@
+<mat-card>
+  <mat-card-title>Hoşgeldiniz!</mat-card-title>
+  <mat-card-subtitle
+    >Notlarını kaydetmek ve düzenlemek için hemen giriş yap!</mat-card-subtitle
+  >
+  <mat-card-content>
+    <form (ngSubmit)="login()">
+      <mat-form-field>
+        <mat-label>Kullanıcı Adı</mat-label>
+        <input matInput [(ngModel)]="username" name="username" required />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Parola</mat-label>
+        <input
+          matInput
+          [(ngModel)]="password"
+          name="password"
+          type="password"
+          required
+        />
+      </mat-form-field>
+      <br />
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">
+          <p>Giriş Yap</p>
+        </button>
+      </mat-card-actions>
+      <div *ngIf="loginError" class="error">
+        <p>Kullanıcı adı veya şifre hatalı. Lütfen tekrar deneyin.</p>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

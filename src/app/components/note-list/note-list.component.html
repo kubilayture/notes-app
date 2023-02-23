@@ -1,0 +1,49 @@
+<mat-card class="note-list">
+  <mat-card-header>
+    <mat-card-title>Notlarım</mat-card-title>
+    <mat-card-subtitle
+      >Burada notlarınızı görüntüleyebilir, düzenleyebilir ve yeni not
+      ekleyebilirsiniz</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <div class="form-container">
+      <mat-form-field>
+        <mat-label>Arama</mat-label>
+        <input matInput [(ngModel)]="searchText" (input)="filterNotes()" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Öncelik</mat-label>
+        <mat-select
+          [(value)]="selectedPriority"
+          (selectionChange)="filterNotes()"
+        >
+          <mat-option value="">Hepsi</mat-option>
+          <mat-option value="Düşük">Düşük</mat-option>
+          <mat-option value="Orta">Orta</mat-option>
+          <mat-option value="Yüksek">Yüksek</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <!-- shows up if no notes available -->
+    <div *ngIf="notes.length === 0" class="no-notes">
+      Aramanızla Eşleşen Sonuç Bulunamadı.
+    </div>
+    <div class="note-item-container-container">
+      <div *ngFor="let note of notes" class="note-item-container">
+        <app-note-item
+          [note]="note"
+          (edit)="edit($event)"
+          (delete)="delete($event)"
+        ></app-note-item>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button class="add-note" mat-raised-button color="primary" routerLink="/note-add">
+      Not Ekle
+    </button>
+    <button class="show-more" mat-flat-button (click)="showMore()">Daha Fazla Göster</button>
+  </mat-card-actions>
+  <!-- hides if number of notes lesser than 10 -->
+</mat-card>

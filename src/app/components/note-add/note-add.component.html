@@ -1,0 +1,43 @@
+<mat-card class="note-add">
+  <mat-card-header>
+    <mat-card-title>Not Ekle</mat-card-title>
+  </mat-card-header>
+  <div class="form-container">
+    <form (ngSubmit)="onSubmit()">
+      <mat-card-content>
+        <mat-form-field class="note-content">
+          <mat-label>Not Yaz</mat-label>
+          <textarea
+            matInput
+            [(ngModel)]="content"
+            name="content"
+            required
+          ></textarea>
+        </mat-form-field>
+        <mat-form-field class="note-priority">
+          <mat-label>Not Önceliği</mat-label>
+          <mat-select [(ngModel)]="priority" name="priority" required>
+            <mat-option
+              *ngFor="let priority of priorities"
+              [value]="priority"
+              >{{ priority }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!isValid()"
+        >
+          Kaydet
+        </button>
+        <button mat-raised-button color="warn" routerLink="/note-list">
+          İptal
+        </button>
+      </mat-card-actions>
+    </form>
+  </div>
+</mat-card>

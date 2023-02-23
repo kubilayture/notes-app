@@ -1,0 +1,96 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+
+  mat-card {
+    max-width: 400px;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    border-radius: 20px;
+    gap: 20px;
+    box-shadow: 20px 20px 40px rgba(20, 20, 20, 0.4);
+    background-color: rgba(120, 120, 120, 0.2);
+
+    mat-card-title {
+      color: rgba(20, 20, 20, 0.8);
+      font-weight: 600;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    mat-card-subtitle {
+      font-size: 1.2rem;
+      font-style: oblique;
+      text-align: center;
+      margin: 1rem;
+      font-weight: 600;
+      line-height: 1.5rem;
+      background-image: linear-gradient(60deg, #600edb, #ff9900);
+      background-clip: text;
+      color: transparent;
+    }
+
+    mat-card-content {
+      padding: 20px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      mat-form-field {
+        margin: 0 auto;
+
+        width: 350px;
+        input {
+          width: 100%;
+        }
+      }
+
+      mat-card-actions {
+        justify-content: center;
+
+        button {
+          padding: 1.5rem 5rem;
+          border-radius: 30px;
+          p {
+            margin: 0;
+            font-size: 1.25rem;
+          }
+        }
+      }
+      .error {
+        font-weight: 500;
+        margin: 0 auto;
+        padding: 10px;
+        max-width: 75%;
+      }
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    mat-card {
+      width: 100%;
+      border-radius: none;
+      box-shadow: none;
+      height: 100vh;
+      mat-card-title {
+        font-size: 2.5rem;
+      }
+      mat-card-content {
+        mat-card-actions {
+          button {
+            padding: 3vh 25vw;
+            p {
+              font-size: larger;
+            }
+          }
+        }
+      }
+    }
+  }
+}

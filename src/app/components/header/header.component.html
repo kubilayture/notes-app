@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <div class="logo-container">
+    <a mat-button routerLink="/note-list" class="logo">
+      <img src="../../../assets/notebook-pen-icon.svg" alt="Logo" />
+    </a>
+  </div>
+  <div class="button-container">
+    <button mat-icon-button *ngIf="isLoggedIn" [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a mat-menu-item routerLink="/note-add">Not Ekle</a>
+      <a mat-menu-item routerLink="/login" (click)="logout()">Çıkış Yap</a>
+    </mat-menu>
+  </div>
+</mat-toolbar>
